@@ -1,9 +1,17 @@
-import React from "react";
 
-function TaskList() {
+import React from "react";
+import Task from "./Task";
+
+function TaskList({categories, tasks, handlesDelete}) {
+  console.log(categories, tasks)
+  // function handlesDelete(index){
+  //   if(index === tasks.category){
+  //     return 
+  //   }
+  // }
   return (
     <div className="tasks">
-      {/* display a list of tasks using Task component */}
+      <Task tasks={tasks} handlesDelete={handlesDelete}/>
     </div>
   );
 }
