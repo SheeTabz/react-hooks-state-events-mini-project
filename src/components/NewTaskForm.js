@@ -39,8 +39,8 @@ const category = categories.filter(c => c !== "All")
          value={formInput.category} 
          onChange={handlesChange}
         >
-          {category.map(category => {
-            return <option  value={category}>{category}</option>
+          {category.map((category, index) => {
+            return <option  key={index} value={category}>{category}</option>
           })}
           
         </select>
