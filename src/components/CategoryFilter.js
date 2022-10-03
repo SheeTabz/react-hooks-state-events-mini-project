@@ -1,22 +1,26 @@
-import React, {useState} from "react";
+import React from "react";
 
-function CategoryFilter({categories, handlesFilter}) {
-  
-  const [isActive, setIsActive] =useState(false)
-   function handlesClick(category,index){
-    setIsActive(current  => !current)
-    handlesFilter(category)
-  }
+function CategoryFilter({ categories, selectedCategory, onSelectCategory }) {
+  const categoryButtons = categories.map((category) => {
+    const className = category === selectedCategory ? "selected" : null;
+    return (
+      <button
+        key={category}
+        className={className}
+        onClick={() => onSelectCategory(category)}
+      >
+        {category}
+      </button>
+    );
+  });
 
-  
   return (
     <div className="categories">
       <h5>Category filters</h5>
-      {categories.map((category, index) => {
-        return <button key={index} className={isActive ? 'selected': ''} onClick={()=>handlesClick(category)}>{category}</button>
-       })}
+      {categoryButtons}
     </div>
   );
 }
 
 export default CategoryFilter;
+
